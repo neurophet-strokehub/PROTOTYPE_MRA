@@ -4,11 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Preview</title>
+    <link rel="icon" href="src\img\png\ICON_TAB.png" />
+    <title>SCALE MRA_DEMO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
       <style>
         /* 공통 스타일 */
+        .thick-arrow-left {
+  width: 25px;
+  height: 25px;
+  border: 10px solid #333;
+  border-left: 0;
+  border-top: 0;
+
+  transform: rotate(135deg);
+}
         .common-heading,
         .common-subheading,
         .common-detail {
@@ -225,6 +235,7 @@
         }
 
         .visibility {
+            padding-bottom: 1rem;
             display: flex;
             flex-direction: row;
             align-items: left;
@@ -342,20 +353,20 @@
 			transform: scale(1);
 			/* 기본 크기 */
 		}
-	}
-
+	}  
     </style>
 </head>
 
 <body>
     <header class="header">
         <h1 class="h1">Analysis Viewer</h1>
-        <div class="win svg-highlight" style="width: 30px;">
+        <div class="win svg-highlight" style="width: 50px;">
             <a href="prototype.html">
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-left"> </i>
             </a>
-        </div>
+        </div> 
     </header>
+    
 
     <!-- MAIN -->
     <main>
@@ -371,7 +382,7 @@
                         </div>
                         <div class="patient-name">
                             <div class="common-subheading">Patient Name</div>
-                            <div class="common-detail">최영수</div>
+                            <div class="common-detail">DEMO_시연용</div>
                         </div>
                         <div class="date-of-birth-age">
                             <div class="common-subheading">Date of Birth (Age)</div>
@@ -452,8 +463,8 @@
                         <button class="toggle-btn" onclick="toggleVisibility(this)">
                             <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                         </button>
-                        <img src="src/img/png/all_color.png" style="margin-right: .5rem;">
-                         <div class="common-heading">ALL</div>
+                        <img src="src/img/png/all_color_red.png" style="margin-right: .5rem;">
+                         <div class="common-heading">#Aneurysm1</div>
                         </div>
                       <div class="numeric-editor">
                         <button class="editor-btn" onclick="changeValue(this, -1)">
@@ -473,8 +484,8 @@
                         <button class="toggle-btn" onclick="toggleVisibility(this)">
                             <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                         </button>
-                        <img src="src/img/png/all_color.png" style="margin-right: .5rem;">
-                         <div class="common-heading">ALL</div>
+                        <img src="src/img/png/all_color_blue.png" style="margin-right: .5rem;">
+                         <div class="common-heading">#Aneurysm2</div>
                         </div>
                       <div class="numeric-editor">
                         <button class="editor-btn" onclick="changeValue(this, -1)">
@@ -489,7 +500,29 @@
                      </div>                         
                 </div>
 
-                
+                <div class="visibility">
+                    <div class="info">
+                        <button class="toggle-btn" onclick="toggleVisibility(this)">
+                            <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
+                        </button>
+                        <img src="src/img/png/all_color_yellow.png" style="margin-right: .5rem;">
+                         <div class="common-heading">#Aneurysm3</div>
+                        </div>
+                      <div class="numeric-editor">
+                        <button class="editor-btn" onclick="changeValue(this, -1)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="value">
+                            <input type="number" value="70" onchange="updateValue(this)" />
+                        </div>
+                        <button class="editor-btn" onclick="changeValue(this, 1)">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                     </div>                         
+                </div>
+
+
+
                           <!-- 추가 레이어들 -->
                 </div>
             </div>
