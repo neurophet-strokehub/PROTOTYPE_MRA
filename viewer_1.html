@@ -7,9 +7,7 @@
     <title>Preview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cornerstone-core/2.5.0/cornerstone.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cornerstone-tools/4.3.0/cornerstone-tools.min.js"></script>
-   <style>
+      <style>
         /* 공통 스타일 */
         .common-heading,
         .common-subheading,
@@ -144,6 +142,8 @@
         .win {
             display: flex;
             align-items: center;
+            justify-content: center;
+
             gap: 10px;
         }
 
@@ -350,7 +350,7 @@
 <body>
     <header class="header">
         <h1 class="h1">Analysis Viewer</h1>
-        <div class="win svg-highlight">
+        <div class="win svg-highlight" style="width: 30px;">
             <a href="prototype.html">
                 <i class="fas fa-arrow-left"></i>
             </a>
@@ -443,29 +443,53 @@
                             <button class="editor-btn" onclick="changeValue(this, 1)">
                                 <i class="fas fa-chevron-up"></i>
                             </button>
-                         </div>
+                         </div>                         
                     </div>
-                    <div class="visibility">
-                        <div class="info">
-                            <button class="toggle-btn" onclick="toggleVisibility(this)">
-                                <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
-                            </button>
-                            <img src="src/img/png/all_color_red.png" style="margin-right: .5rem;">
-                             <div class="common-heading">Aneurysm#1</div>
-                            </div>
-                          <div class="numeric-editor">
-                            <button class="editor-btn" onclick="changeValue(this, -1)">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="value">
-                                <input type="number" value="70" onchange="updateValue(this)" />
-                            </div>
-                            <button class="editor-btn" onclick="changeValue(this, 1)">
-                                <i class="fas fa-chevron-up"></i>
-                            </button>
-                         </div>
-                    </div>
+                </div>
 
+                <div class="visibility">
+                    <div class="info">
+                        <button class="toggle-btn" onclick="toggleVisibility(this)">
+                            <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
+                        </button>
+                        <img src="src/img/png/all_color.png" style="margin-right: .5rem;">
+                         <div class="common-heading">ALL</div>
+                        </div>
+                      <div class="numeric-editor">
+                        <button class="editor-btn" onclick="changeValue(this, -1)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="value">
+                            <input type="number" value="70" onchange="updateValue(this)" />
+                        </div>
+                        <button class="editor-btn" onclick="changeValue(this, 1)">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                     </div>                         
+                </div>
+
+                <div class="visibility">
+                    <div class="info">
+                        <button class="toggle-btn" onclick="toggleVisibility(this)">
+                            <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
+                        </button>
+                        <img src="src/img/png/all_color.png" style="margin-right: .5rem;">
+                         <div class="common-heading">ALL</div>
+                        </div>
+                      <div class="numeric-editor">
+                        <button class="editor-btn" onclick="changeValue(this, -1)">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="value">
+                            <input type="number" value="70" onchange="updateValue(this)" />
+                        </div>
+                        <button class="editor-btn" onclick="changeValue(this, 1)">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                     </div>                         
+                </div>
+
+                
                           <!-- 추가 레이어들 -->
                 </div>
             </div>
@@ -477,8 +501,7 @@
             <div class="Rt-top">
             </div>
             <div class="Rt-bottom">
-                <div id="dicomViewer" class="dicom-image"></div>
-            </div>
+             </div>
         </div>
     </main>
 
@@ -512,23 +535,7 @@
                 input.value = 0;
             }
         }
-    </script>
-     <script>
-        // CornerstoneJS 설정
-        function initCornerstone() {
-            const element = document.getElementById('dicomViewer');
-            cornerstone.enable(element);
-
-            // 이미지 URL
-            const imageId = 'dicomweb://your-dicom-server-url/path/to/dicom/file.dcm';
-
-            cornerstone.loadImage(imageId).then(image => {
-                cornerstone.displayImage(element, image);
-            }).catch(err => console.error(err));
-        }
-
-        document.addEventListener('DOMContentLoaded', initCornerstone);
-    </script>
+    </script> 
 </body>
 
 </html>
