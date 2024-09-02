@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Preview</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		html,
+		body {
+			min-height: 100vh;
+			margin: 0;
+			font-family: 'Spoqa Han San', sans-serif;
+			overflow-x: hidden;
+		}
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: 45px 60px 100px 120px 150px 60px 120px 120px 120px 150px 100px 100px 150px 1fr;
+			background-color: #383838;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 3px;
+			overflow-x: auto;
+			padding: 0.25rem 0.5rem;
+			width: 100%;
+		}
+
+		.header-row {
+			font-weight: 500;
+			color: #fff;
+			display: contents;
+			height: 2.5rem;
+			/* 고정 높이 설정 */
+		}
+
+		.data-row {
+			display: contents;
+			height: 2.5rem;
+			/* 고정 높이 설정 */
+		}
+
+		.header-item,
+		.data-item {
+			display: flex;
+			align-items: center;
+			padding: 0.5rem 0.75rem;
+			font-size: 0.75rem;
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		.header-row .header-item {
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			height: 1rem;
+			/* 구분선의 높이 설정 */
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			position: relative;
+			color: #fff
+		}
+
+		.header-row .header-item:last-child {
+			border-right: none;
+		}
+
+		.data-item.aneurysm.suspected {
+			background-color: #ff453a;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		/* 기본적으로 왼쪽 정렬 */
+		.header-item,
+		.data-item {
+			justify-content: flex-start;
+		}
+
+		/* 커스텀 체크박스 스타일 */
+		.checkbox-container {
+			display: flex;
+			align-items: center;
+		} 
+
+		/* 커스텀 체크박스 스타일 */
+		.checkbox-container input[type="checkbox"]+span {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background-color: #282828;
+			/* 체크박스 배경 색상 */
+			border: 2px solid #1077fe;
+			/* 체크박스 테두리 색상 */
+			border-radius: 3px;
+			position: relative;
+			cursor: pointer;
+		}
+
+		/* 체크박스 체크 시 스타일 */
+		.checkbox-container input[type="checkbox"]:checked+span {
+			background-color: #1077fe;
+			/* 체크박스 배경 색상 */
+			border-color: #1077fe;
+			/* 체크박스 테두리 색상 */
+		}
+
+		.checkbox-container input[type="checkbox"]:checked+span::after {
+			content: "";
+			display: block;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			/* 체크 표시 색상 */
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 2px;
+		}
+
+		.svg-link {
+		text-decoration: none;
+		/* 링크의 기본 밑줄 제거 */
+	}
+
+	.svg-highlight {
+		margin-top: .5rem;
+		scale: 2;
+		color: white;
+		/* 보라색 */
+		background-color: rgba(155, 89, 182, 0.1);
+		/* 보라색 배경색 */
+		border-radius: 4px;
+		/* 둥근 모서리 */
+		padding: 4px;
+		/* 아이콘 주변 여백 */
+		box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+		/* 보라색 그림자 */
+		transition: all 0.3s ease;
+		/* 애니메이션 효과 */
+		animation: sparkle 1.5s infinite;
+		/* 반짝이는 애니메이션 */
+	}
+
+	.svg-highlight:hover {
+		color: red;
+		/* 마우스 오버 시 색상 변화 */
+		background-color: rgba(155, 89, 182, 0.2);
+		/* 마우스 오버 시 배경색 변화 */
+		transform: scale(1.5);
+		/* 크기 증가 */
+		box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+		/* 보라색 그림자 강화 */
+		animation: sparkle 1s infinite;
+		/* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
+	}
+
+	@keyframes sparkle {
+		0% {
+			box-shadow: 0 0 8px red;
+			/* 기본 보라색 그림자 */
+			transform: scale(1);
+			/* 기본 크기 */
+		}
+
+		50% {
+			box-shadow: 0 0 16px red;
+			/* 강화된 보라색 그림자 */
+			transform: scale(1.1);
+			/* 약간의 확대 */
+		}
+
+		100% {
+			box-shadow: 0 0 8px red;
+			/* 기본 보라색 그림자 */
+			transform: scale(1);
+			/* 기본 크기 */
+		}
+	}
+
+	</style>
+</head>
+
+<body class="bg-[#282828] text-white">
+	<div class="flex flex-col h-screen">
+		<!-- Header Section -->
+		<header class="flex justify-between items-center p-6 bg-[#282828] border-b border-white/10">
+			<p class="text-xl font-bold">Analysis</p>
+			<div class="flex gap-3">
+				<button class="flex items-center h-10 px-4 py-2.5 rounded bg-white/10 border border-white/5">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="w-4 h-4">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M7.5 15L7.5 10.5H10.5H12V9.42857V6L7 1H1V15H7.5ZM11.5 7H6.5V2L11.5 7Z" fill="white"
+							fill-opacity="0.4"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M16 12.9998L15.825 13.1706L13.3502 15.5875L12.9278 16L12.9278 15.4167V14.5H8.5V11.5H12.9278V10.5833V10L13.3502 10.4125L15.825 12.8289L16 12.9998Z"
+							fill="white" fill-opacity="0.2"></path>
+					</svg>
+					<span class="text-sm font-bold text-white/20 ml-2">Export</span>
+				</button>
+				<button class="flex items-center h-10 px-4 py-2.5 rounded bg-[#1077fe]">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="w-4 h-4">
+						<path d="M7 9V14H9V9H14V7H9V2H7V7H2V9H7Z" fill="white"></path>
+					</svg>
+					<span class="text-sm font-bold text-white ml-2">New Analysis</span>
+				</button>
+			</div>
+		</header>
+
+		<!-- Main Content -->
+		<main class="flex flex-col p-6 gap-4">
+			<!-- Search and Summary -->
+			<div class="flex justify-between items-center" style="height: 40px;">
+				<div class="flex items-center w-[300px] px-3 rounded-sm bg-[#1e1e1e] border border-white/30"
+					style="height: 40px;">
+					<img src="src/img/png/icon_search.png" class="w-4 h-4 mr-2">
+					<input type="text"
+						class="w-full bg-transparent border-none text-sm text-white/60 placeholder-white/60"
+						placeholder="Enter patient ID or name">
+				</div>
+				<p class="text-white/60 ml-auto">Total analysis: 3</p>
+			</div>
+
+			<!-- Data Table -->
+			<div class="grid-container">
+				<div class="header-row">
+					<!-- Header Content -->
+					<div class="header-item checkbox-container">
+						<input type="checkbox" id="select-all" class="cursor-pointer">
+					</div>
+					<div class="header-item id">ID</div>
+					<div class="header-item mode">Mode</div>
+					<div class="header-item patient-id">Patient ID</div>
+					<div class="header-item patient-name">Patient Name</div>
+					<div class="header-item sex">Sex</div>
+					<div class="header-item dob">Date of Birth (Age)</div>
+					<div class="header-item aneurysm">Aneurysm</div>
+					<div class="header-item scan-date">Scan Date</div>
+					<div class="header-item action">Action</div>
+					<div class="header-item image-format">Image Format</div>
+					<div class="header-item status">Status</div>
+					<div class="header-item completed">Analysis Completed</div>
+					<div class="header-item memo">Memo</div>
+				</div>
+
+				<!-- Data Content -->
+				<div class="data-row">
+                    <div class="data-item checkbox-container">
+                        <input type="checkbox" class="data-checkbox cursor-pointer">
+                         
+                    </div>
+					<div class="data-item id">1</div>
+					<div class="data-item mode">
+						<img src="src/img/png/research.svg"></div>
+					<div class="data-item patient-id">240000000001</div>
+					<div class="data-item patient-name">뉴로핏-데모용</div>
+					<div class="data-item sex">Female</div>
+					<div class="data-item dob">1962-01-15 (68)</div>
+					<div class="data-item aneurysm suspected">Suspected</div>
+					<div class="data-item scan-date">2022-07-25</div>
+					<div class="data-item action">
+						<a href="viewer-report.html" target="_blank" class="svg-link">
+							<div class="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-[120px] relative gap-3 px-2.5 py-1">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-grow-0 flex-shrink-0 w-4 h-4 relative svg-highlight" preserveAspectRatio="xMidYMid meet">
+									<g opacity="0.9">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M15 1.5H1V12.5H6.5V14H4V15H12V14H9.5V12.5H15V1.5ZM14 2.5H2V10.5H14V2.5Z" fill="currentColor"></path>
+									</g>
+								</svg>
+							</div>
+						</a>					</div>
+					<div class="data-item image-format">DICOM</div>
+					<div class="data-item status">Completed</div>
+					<div class="data-item completed">2024-01-01 10:52</div>
+					<div class="data-item memo">test</div>
+				</div>
+				<!-- Add more rows as needed -->
+			</div>
+		</main>
+	</div>
+
+	<script>
+		// Select/Deselect all checkboxes
+        document.getElementById('select-all').addEventListener('change', function() {
+            const isChecked = this.checked;
+            document.querySelectorAll('.data-checkbox').forEach(checkbox => {
+                checkbox.checked = isChecked;
+            });
+        });
+
+        // Check if there's only one data row and handle checkbox change
+        function handleSingleRowCheckbox() {
+            const dataRows = document.querySelectorAll('.data-row');
+            if (dataRows.length === 1) {
+                const dataCheckbox = dataRows[0].querySelector('.data-checkbox');
+                dataCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        document.getElementById('select-all').checked = true;
+                    } else {
+                        document.getElementById('select-all').checked = false;
+                    }
+                });
+            }
+        }
+
+        // Call the function to set up the event listener
+        handleSingleRowCheckbox();
+	</script>
+</body>
+
+</html>
