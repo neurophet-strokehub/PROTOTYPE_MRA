@@ -1,0 +1,325 @@
+<html class="theme-dark" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000000">
+	<meta name="description" content="Degenerative Neurological Disease Diagnosis Assistant Software">
+	<title>SCALE MRA_VIEWER</title>
+	<script defer="defer" src="main.js"></script>
+	<link href="css.css" rel="stylesheet"> 
+    <style>
+        /* Ensure the body and html elements use full height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Make sure the viewer container takes up the full height */
+.viewer-container {
+    height: 100%;
+    overflow: auto; /* Adjust as necessary */
+}
+
+/* Adjust the canvas size if needed */
+.aq-viewer-container canvas {
+    height: 100%;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .viewer-container {
+        /* Adjust styles for smaller screens */
+    }
+    .aq-viewer-canvas {
+        /* Adjust styles for canvas on smaller screens */
+    }
+}
+.aq-page-viewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aq-viewer-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.Rt.pannel-upside {
+  /* Add any specific styles for the Rt.pannel-upside container if needed */
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.w-[360px] {
+  width: 360px;
+}
+
+.p-4 {
+  padding: 16px;
+}
+
+.bg-[#383838] {
+  background-color: #383838;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.section-title {
+  width: 100%;
+  font-size: 0.875rem; /* 14px */
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 0.75rem; /* 12px */
+  font-weight: medium;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.info-value {
+  font-size: 0.875rem; /* 14px */
+  color: #ffffff;
+}
+
+.separator {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.view-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 0.875rem; /* 14px */
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.view-details p {
+  margin: 0;
+}
+
+    </style>
+</head>
+<body>
+ 	<div id="root">
+			<div class="aq-content">
+				<div class="aq-page-viewer" id="aq-page-viewer" f- s- items-center justify-center>
+                    <div class="aq-viewer-header" style="display: flex; align-items:center;  height: 60px;"> 
+                        <p class="text-white font-bold" style="font-size: 24px;">Analysis</p>
+                    </div>
+
+					<div class="aq-viewer-container">
+ 						<div class="aq-viewer-body">
+							<div class="body-handlers">
+								<div class="handle-mri">
+									<div class="handle-title">Patient Demographics</div>
+									<ul class="handle-items">
+										<div class="Rt pannel-upside">
+                                            <div class="flex flex-col w-[360px] p-4 bg-[#383838] overflow-hidden gap-4">
+                                              <!-- Patient Demographics -->
+                                              <div class="flex flex-col gap-4">
+                                                <p class="section-title">Patient Demographics</p>
+                                                <div class="info-list">
+                                                  <div class="info-item">
+                                                    <p class="info-label">Patient ID</p>
+                                                    <p class="info-value">241022101098510</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                    <p class="info-label">Patient Name</p>
+                                                    <p class="info-value">최영수</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                    <p class="info-label">Date of Birth (Age)</p>
+                                                    <p class="info-value">1950-01-22 (74)</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                    <p class="info-label">Sex</p>
+                                                    <p class="info-value">Male</p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="separator"></div>
+                                              <!-- Image Information -->
+                                              <div class="flex flex-col gap-4">
+                                                <p class="section-title">Image Information</p>
+                                                <div class="info-item">
+                                                  <p class="info-label">Scan Date (Age)</p>
+                                                  <p class="info-value">2023-01-15 (73)</p>
+                                                </div>
+                                                <div class="info-item">
+                                                  <p class="info-label">Memo</p>
+                                                  <p class="info-value">촬영본 연구모드로 분석</p>
+                                                </div>
+                                              </div>
+                                              <div class="separator"></div>
+                                              <!-- Summary -->
+                                              <div class="flex flex-col gap-4">
+                                                <p class="section-title">Summary</p>
+                                                <div class="info-item">
+                                                  <p class="info-label">Aneurysm Suspected</p>
+                                                  <p class="info-value font-bold">5</p>
+                                                </div>
+                                                <div class="view-details">
+                                                  <p>View Details</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+									</ul>
+								</div>
+								<div class="handle-viewer">
+									<div class="handle-title"><span>Visualizaiton</span><span class="aq-viewer-toggleswitch-visualization-wrap">
+										</span></div>
+									<div class="handle-reset"><button type="button" class="ns-button ns-button-tertiary ns-button-small " id="aq-viewer-button-reset"><span class="ns-button-icon-wrap ns-icon-start"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" svgdata="[object Object]" class="ns-icon" ns-icon-type="reset">
+													<path d="M26.5699 23.5699C28.0995 21.4379 29 18.8241 29 16C29 8.8203 23.1797 3 16 3C15.6635 3 15.33 3.01278 15 3.03789V5.547C15.3291 5.5159 15.6627 5.5 16 5.5C21.799 5.5 26.5 10.201 26.5 16C26.5 18.1323 25.8644 20.1161 24.7724 21.7724L21 18V27H30L26.5699 23.5699Z" fill="white"></path>
+													<path d="M17 28.9621C16.67 28.9872 16.3365 29 16 29C8.8203 29 3 23.1797 3 16C3 13.1759 3.90053 10.5621 5.43011 8.43011L2 5H11V14L7.22764 10.2276C6.13558 11.8839 5.5 13.8677 5.5 16C5.5 21.799 10.201 26.5 16 26.5C16.3373 26.5 16.6709 26.4841 17 26.453V28.9621Z" fill="white"></path>
+												</svg></span>Reset</button></div>
+									<div class="handle-visualizations"> 
+										<div class="visual-regions" > 	 
+											<div class="region-items">
+												<ul data-disabled="false">
+													<li class="aq-colorlabel ">
+														<div role="option" aria-selected="true" tabindex="0" class="ns-dropdown-item ns-dropdown-item-icon-start selected "><span class="ns-dropdown-item-icon-wrap start"><span class="aq-colorlabel-color" style="background: linear-gradient(rgb(45, 255, 22), rgb(12, 36, 254) 46%, rgb(232, 0, 100));"></span></span><span class="ns-dropdown-item-label">All</span></div>
+													</li>
+													<li class="aq-colorlabel ">
+														<div role="option" aria-selected="false" tabindex="0" class="ns-dropdown-item ns-dropdown-item-icon-start  "><span class="ns-dropdown-item-icon-wrap start"><span class="aq-colorlabel-color" style="background: #EC0DB0;"></span></span><span class="ns-dropdown-item-label">Aneurysms#1</span></div>
+													</li>
+													<li class="aq-colorlabel ">
+														<div role="option" aria-selected="false" tabindex="0" class="ns-dropdown-item ns-dropdown-item-icon-start  "><span class="ns-dropdown-item-icon-wrap start"><span class="aq-colorlabel-color" style="background: #2800FF;"></span></span><span class="ns-dropdown-item-label">Aneurysms#2</span></div>
+													</li>
+													<li class="aq-colorlabel ">
+														<div role="option" aria-selected="false" tabindex="0" class="ns-dropdown-item ns-dropdown-item-icon-start  "><span class="ns-dropdown-item-icon-wrap start"><span class="aq-colorlabel-color" style="background: #DCD814;"></span></span><span class="ns-dropdown-item-label">Aneurysms#3</span></div>
+													</li> 
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="body-viewer">
+								<div class="viewer-container">
+									<div class="viewer-grids">
+										<div>
+											<div class="aq-viewer-container aq-viewer-canvas mouse-leave"><canvas tabindex="0" width="509" height="408" style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;"></canvas><canvas width="509.5" height="408" style="display: none; width: 509.5px; height: 408px;"></canvas>
+												<div class="aq-viewer-windowLeveling">Z: 1.00 x</div>
+												<div class="aq-viewer-canvas-title">axial</div>
+												<div class="aq-viewer-slider-wrapper">
+													<div class="aq-viewer-progress-count">93 / 187</div>
+													<div class="aq-slier-content">
+														<div style="transform: scale(1); cursor: pointer; width: 16px; height: calc(100% - 8px); margin-top: 4px; background-color: transparent;">
+															<div tabindex="0" aria-valuemax="187" aria-valuemin="1" aria-valuenow="93" draggable="false" role="slider" id="aq-viewer-slider-thumb" class="aq-viewer-slider-thumb" style="position: absolute; z-index: 0; cursor: grab; user-select: none; touch-action: none; height: 8px; width: 16px; box-shadow: var(--BoxShadow1); outline: none; transform: translate(0px, 197.14px);"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="aq-viewer-container aq-viewer-canvas mouse-leave"><canvas tabindex="0" width="509" height="408" style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;"></canvas><canvas width="509.5" height="408" style="display: none; width: 509.5px; height: 408px;"></canvas>
+												<div class="aq-viewer-windowLeveling">Z: 1.00 x</div>
+												<div class="aq-viewer-canvas-title">sagittal</div>
+												<div class="aq-viewer-slider-wrapper">
+													<div class="aq-viewer-progress-count">108 / 230</div>
+													<div class="aq-slier-content">
+														<div style="transform: scale(1); cursor: pointer; width: 16px; height: calc(100% - 8px); margin-top: 4px; background-color: transparent;">
+															<div tabindex="0" aria-valuemax="230" aria-valuemin="1" aria-valuenow="108" draggable="false" role="slider" id="aq-viewer-slider-thumb" class="aq-viewer-slider-thumb" style="position: absolute; z-index: 0; cursor: grab; user-select: none; touch-action: none; height: 8px; width: 16px; box-shadow: var(--BoxShadow1); outline: none; transform: translate(0px, 208.035px);"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="aq-viewer-container aq-viewer-canvas mouse-leave"><canvas tabindex="0" width="509" height="408" style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;"></canvas><canvas width="509.5" height="408" style="display: none; width: 509.5px; height: 408px;"></canvas>
+												<div class="aq-viewer-windowLeveling">Z: 1.00 x</div>
+												<div class="aq-viewer-canvas-title">coronal</div>
+												<div class="aq-viewer-slider-wrapper">
+													<div class="aq-viewer-progress-count">115 / 230</div>
+													<div class="aq-slier-content">
+														<div style="transform: scale(1); cursor: pointer; width: 16px; height: calc(100% - 8px); margin-top: 4px; background-color: transparent;">
+															<div tabindex="0" aria-valuemax="230" aria-valuemin="1" aria-valuenow="115" draggable="false" role="slider" id="aq-viewer-slider-thumb" class="aq-viewer-slider-thumb" style="position: absolute; z-index: 0; cursor: grab; user-select: none; touch-action: none; height: 8px; width: 16px; box-shadow: var(--BoxShadow1); outline: none; transform: translate(0px, 195.869px);"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div class="aq-viewer-container"></div>
+										</div>
+									</div>
+									<div class="viewer-controls">
+										<div class="control-title"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" svgdata="[object Object]" class="ns-icon" ns-icon-type="info">
+												<path d="M16 31C24.2843 31 31 24.2843 31 16C31 7.71573 24.2843 1 16 1C7.71573 1 1 7.71573 1 16C1 24.2843 7.71573 31 16 31ZM15.9992 10.9604C17.5456 10.9604 18.7992 9.70675 18.7992 8.16035C18.7992 6.61395 17.5456 5.36035 15.9992 5.36035C14.4528 5.36035 13.1992 6.61395 13.1992 8.16035C13.1992 9.70675 14.4528 10.9604 15.9992 10.9604ZM15.997 26.6401C15.2544 26.6401 14.5422 26.3451 14.0171 25.82C13.492 25.2949 13.197 24.5827 13.197 23.8401V15.4401L10.957 12.0801H15.997C16.7396 12.0801 17.4518 12.3751 17.9769 12.9002C18.502 13.4253 18.797 14.1375 18.797 14.8801V23.2801L21.037 26.6401H15.997Z" fill="white" fill-rule="evenodd" clip-rule="evenodd"></path>
+											</svg>View Controls</div>
+										<div class="control-items">
+											<ul>
+												<li class="control-item zooming"><img src="data:image/png;base64,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" alt="">
+													<div>Zooming</div>
+												</li>
+												<li class="control-item panning"><img src="data:image/png;base64,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" alt="">
+													<div>Panning</div>
+												</li>
+												<li class="control-item windowing"><img src="data:image/png;base64,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" alt="">
+													<div>Windowing</div>
+												</li>
+												<li class="control-item slicing"><img src="data:image/png;base64,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" alt="">
+													<div>Slicing</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+<script>
+    // Example: Adjust canvas size on window resize
+window.addEventListener('resize', () => {
+    const canvas = document.querySelector('.aq-viewer-container canvas');
+    if (canvas) {
+        canvas.style.height = `${window.innerHeight}px`;
+        canvas.style.width = `${window.innerWidth}px`;
+    }
+});
+
+</script>
+    </body>
+
+</html>
