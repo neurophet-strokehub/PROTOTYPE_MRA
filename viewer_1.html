@@ -4,21 +4,55 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="src\img\png\ICON_TAB.png" />
+    <link rel="icon" href="src/img/png/ICON_TAB.png" />
     <title>SCALE MRA_DEMO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
       <style>
-        /* 공통 스타일 */
-        .thick-arrow-left {
-  width: 25px;
-  height: 25px;
-  border: 10px solid #333;
-  border-left: 0;
-  border-top: 0;
-
-  transform: rotate(135deg);
+ .radio-wrapper {
+    box-sizing: border-box;
 }
+
+.radio-inputs {
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 2px;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    width: 150px; /* 적절한 너비로 조정하세요 */
+    font-size: 14px;
+}
+
+.radio-inputs label {
+    flex: 1;
+    text-align: center;
+}
+
+.radio-inputs label input {
+    display: none;
+}
+
+.radio-label {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.90); /* 스위치와 일치하는 색상 */
+    transition: all 0.15s ease-in-out;
+}
+
+.radio-inputs label input:checked + .radio-label {
+    background-color: rgba(255, 255, 255, 0.20); /* 선택된 상태 색상 */
+    font-weight: 600;
+}
+
+
         .common-heading,
         .common-subheading,
         .common-detail {
@@ -532,6 +566,19 @@
         <!-- 오른쪽 뷰어 내용 -->
         <div class="main-Rt">
             <div class="Rt-top">
+                <div class="radio-wrapper">
+                    <div class="radio-inputs">
+                        <label for="radio1">
+                            <input id="radio1" type="radio" name="radio-group" checked />
+                            <span class="radio-label" >Image</span>
+                        </label>
+                        <label for="radio2">
+                            <input id="radio2" type="radio" name="radio-group" />
+                            <span class="radio-label">Report</span>
+                        </label>
+                    </div>
+                </div>
+                
             </div>
             <div class="Rt-bottom">
              </div>
