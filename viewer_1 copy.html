@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html,
+		body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+			min-height: 100vh;
+			margin: 0;
+			font-family: 'Spoqa Han San', sans-serif;
+      font-smoothing: antialiased;
+			overflow-x: hidden;
+		}
+  </style>
+</head>
+<body>
+  <div class="w-full h-full bg-[#0a0a0a] flex flex-col">
+    <!-- Header Section -->
+		<header class="flex justify-between items-center p-6 bg-[#282828] border-b border-white/10">
+			<p class="text-3xl text-white font-bold">Analysis</p>
+			<div class="flex gap-3">
+				<button class="flex items-center h-10 px-4 py-2.5 rounded bg-white/10 border border-white/5">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="w-4 h-4">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M7.5 15L7.5 10.5H10.5H12V9.42857V6L7 1H1V15H7.5ZM11.5 7H6.5V2L11.5 7Z" fill="white"
+							fill-opacity="0.4"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M16 12.9998L15.825 13.1706L13.3502 15.5875L12.9278 16L12.9278 15.4167V14.5H8.5V11.5H12.9278V10.5833V10L13.3502 10.4125L15.825 12.8289L16 12.9998Z"
+							fill="white" fill-opacity="0.2"></path>
+					</svg>
+					<span class="text-sm font-bold text-white/20 ml-2">Export</span>
+				</button>
+				<button class="flex items-center h-10 px-4 py-2.5 rounded bg-[#1077fe]">
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="w-4 h-4">
+						<path d="M7 9V14H9V9H14V7H9V2H7V7H2V9H7Z" fill="white"></path>
+					</svg>
+					<span class="text-sm font-bold text-white ml-2">New Analysis</span>
+				</button>
+			</div>
+		</header>
+
+
+    <div class="flex-grow flex overflow-hidden">
+      <!-- Sidebar -->
+      <aside class="w-80 bg-[#383838] p-4 text-white">
+        <h2 class="text-sm font-bold mb-4">Patient Demographics</h2>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Patient ID</p>
+          <p class="text-sm font-bold">241022101098510</p>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Patient Name</p>
+          <p class="text-sm font-bold">최영수</p>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Date of Birth (Age)</p>
+          <p class="text-sm">1950-01-22 (74)</p>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Sex</p>
+          <p class="text-sm">Male</p>
+        </div>
+        <hr class="border-white/20 mb-4" />
+        <h2 class="text-sm font-bold mb-4">Image Information</h2>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Scan Date (Age)</p>
+          <p class="text-sm">2023-01-15 (73)</p>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Memo</p>
+          <p class="text-sm">촬영본 연구모드로 분석</p>
+        </div>
+        <hr class="border-white/20 mb-4" />
+        <h2 class="text-sm font-bold mb-4">Analysis Summary</h2>
+        <div class="mb-4">
+          <p class="text-xs font-medium mb-1">Aneurysms Suspected</p>
+          <p class="text-sm font-bold">3</p>
+        </div>
+        <button class="bg-white/40 border border-white/10 text-sm font-bold px-2.5 py-1.5 rounded-md text-white">
+          View Details
+        </button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-grow bg-[#282828] p-2">
+        <div class="relative overflow-hidden">
+          <img src="image-3.png" alt="Report Area" class="w-full h-auto max-h-[891px] object-cover" />
+          <p class="absolute bottom-4 left-4 text-[42px] font-bold text-[#b75bff]">보고서 영역</p>
+        </div>
+        <div class="flex items-center justify-between py-2 bg-[#282828] mt-2">
+          <p class="text-sm text-white">1 / 4</p>
+          <div class="flex gap-2">
+            <button class="w-8 h-8 bg-[#1077fe]/20 border border-[#1077fe] flex items-center justify-center rounded-sm">
+              <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                <path d="M3.75 21.4497V3V1.5H5.25H13.5L20.25 8.25V21.4497V22.5V22.9497H3.75V22.5V21.4497ZM13.5 8.25H18.75V21.4497H5.25V3H13.5V8.25ZM17.8235 13.0981L14.5536 10.5V12.0002H9.2699V10.5002L6 13.0983L9.2699 15.6963V14.2502H14.5536V15.6962L17.8235 13.0981Z" fill="white" fill-opacity="0.9"></path>
+              </svg>
+            </button>
+            <button class="w-8 h-8 bg-[#282828] border border-white/20 flex items-center justify-center rounded-sm">
+              <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                <path d="M3.75 21.4497V3V1.5H5.25H13.5L20.25 8.25V21.4497V22.5V22.9497H3.75V22.5V21.4497ZM13.5 8.25H18.75V21.4497H5.25V3H13.5V8.25ZM11.9119 19.01L14.51 15.7401H13.0098L13.0098 10.4564H14.5098L11.9118 7.18652L9.31368 10.4564H10.7598L10.7598 15.7401H9.31386L11.9119 19.01Z" fill="white" fill-opacity="0.6"></path>
+              </svg>
+            </button>
+            <button class="w-8 h-8 bg-[#282828] border border-white/20 flex items-center justify-center rounded-sm">
+              <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                <path d="M3.75 3.75H9.75V9.75H3.75V3.75ZM2.25 2.25H3.75H9.75H11.25V3.75V9.75V11.25H9.75V10.5H7.5V12.75H12.75V1.5H3.75H2.25V2.25ZM15.75 12.75H21.75V18.75H15.75V12.75ZM16.5 14.25V17.25H20.25V14.25H16.5ZM13.5 3.75H15.75V9.75H13.5V3.75ZM20.25 2.25H21.75V11.25H18V9.75H15.75V5.25H16.5H17.25H18H20.25V2.25ZM21.75 14.25V16.5H20.25V18.75H18V17.25V14.25H21.75Z" fill="white" fill-opacity="0.6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
