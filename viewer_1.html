@@ -7,7 +7,9 @@
     <title>Preview</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cornerstone-core/2.5.0/cornerstone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cornerstone-tools/4.3.0/cornerstone-tools.min.js"></script>
+   <style>
         /* 공통 스타일 */
         .common-heading,
         .common-subheading,
@@ -289,13 +291,66 @@
             font-size: 14px;
             text-align: right; /* 숫자를 오른쪽으로 정렬합니다. */
         }
+        .svg-highlight { 
+ 		color: white;
+		/* 보라색 */
+		background-color: rgba(155, 89, 182, 0.1);
+		/* 보라색 배경색 */
+		border-radius: 4px;
+		/* 둥근 모서리 */
+		padding: 4px;
+		/* 아이콘 주변 여백 */
+		box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+		/* 보라색 그림자 */
+		transition: all 0.5s ease;
+		/* 애니메이션 효과 */
+		animation: sparkle 1.5s infinite;
+		/* 반짝이는 애니메이션 */
+	}
+
+	.svg-highlight:hover {
+		color: red;
+		/* 마우스 오버 시 색상 변화 */
+		background-color: rgba(241, 238, 238, 0.2);
+		/* 마우스 오버 시 배경색 변화 */
+		transform: scale(1.5);
+		/* 크기 증가 */
+		box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+		/* 보라색 그림자 강화 */
+		animation: sparkle 1s infinite;
+		/* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
+	}
+
+	@keyframes sparkle {
+		0% {
+			box-shadow: 0 0 8px red;
+			/* 기본 보라색 그림자 */
+			transform: scale(1);
+			/* 기본 크기 */
+		}
+
+		50% {
+			box-shadow: 0 0 16px red;
+			/* 강화된 보라색 그림자 */
+			transform: scale(1.1);
+			/* 약간의 확대 */
+		}
+
+		100% {
+			box-shadow: 0 0 8px red;
+			/* 기본 보라색 그림자 */
+			transform: scale(1);
+			/* 기본 크기 */
+		}
+	}
+
     </style>
 </head>
 
 <body>
     <header class="header">
         <h1 class="h1">Analysis Viewer</h1>
-        <div class="win">
+        <div class="win svg-highlight">
             <a href="prototype.html">
                 <i class="fas fa-arrow-left"></i>
             </a>
@@ -420,10 +475,9 @@
         <!-- 오른쪽 뷰어 내용 -->
         <div class="main-Rt">
             <div class="Rt-top">
-111
             </div>
             <div class="Rt-bottom">
-                11
+                <div id="dicomViewer" class="dicom-image"></div>
             </div>
         </div>
     </main>
@@ -458,6 +512,22 @@
                 input.value = 0;
             }
         }
+    </script>
+     <script>
+        // CornerstoneJS 설정
+        function initCornerstone() {
+            const element = document.getElementById('dicomViewer');
+            cornerstone.enable(element);
+
+            // 이미지 URL
+            const imageId = 'dicomweb://your-dicom-server-url/path/to/dicom/file.dcm';
+
+            cornerstone.loadImage(imageId).then(image => {
+                cornerstone.displayImage(element, image);
+            }).catch(err => console.error(err));
+        }
+
+        document.addEventListener('DOMContentLoaded', initCornerstone);
     </script>
 </body>
 
