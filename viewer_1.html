@@ -6,103 +6,197 @@
   <title>Preview</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html,
-    body {
-      display: flex;
-      width: 100%;
-      height: 100vh;
-      flex-direction: column;
-      background-color: black;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+  /* 공통 스타일 */
+  .common-text {
+    text-align: left;
+    font-family: 'SpoqaHanSansNeo-Regular', sans-serif;
+    line-height: 140%;
+    color: white; /* 확인: 모든 .common-text 요소는 흰색으로 설정됨 */
+    position: relative;
+    align-self: stretch;
+}
 
-    /* 'main'의 CSS 수정 */
-    main {
-      display: flex;
-      width: 100%;
-      height: calc(100vh - 48px); /* 헤더 높이를 제외한 나머지 영역 높이 설정 */
-      align-items: flex-start;
-      gap: 1px;
-    }
+.common-heading {
+    color: rgba(255, 255, 255, 0.90);
+    font-family: 'SpoqaHanSansNeo-Bold', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
 
-    .main-leftpannel,
-    .main-rightviewer {
-      height: 100%; /* 높이를 부모 요소에 맞게 설정 */
-    }
+.common-subheading {
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'SpoqaHanSansNeo-Medium', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
 
-    .main-leftpannel {
-      display: flex;
-      width: 30%;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1px;
-    }
+.common-detail {
+    color: #ffffff; /* 흰색으로 설정 */
+    font-family: 'SpoqaHanSansNeo-Regular', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
 
-    .main-rightviewer {
-      display: flex;
-      width: 70%;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1px;
-    }
+/* 레이아웃 및 기본 스타일 */
+html, body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
 
+.header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282828;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 48px);
+    margin-top: 48px;
+}
+
+.main-leftpannel,
+.main-rightviewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.main-leftpannel {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+
+.main-rightviewer {
+    flex: 7.5;
+    background-color: #444;
+}
+
+.left-top,
+.left-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-top {
+    flex: 7;
+    background-color: #333;
+}
+
+.left-bottom {
+    flex: 3;
+    background-color: #555;
+}
+
+.h1 {
+    color: #FFF;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 140%;
+}
+
+@media (max-width: 768px) {
     .header {
-      position: fixed;
-      display: flex;
-      top: 0;
-      width: 100%;
-      height: 48px;
-      padding: 0 20px;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #282828;
-      box-sizing: border-box;
+        height: 50px;
+        padding: 0 10px;
     }
 
     .h1 {
-      color: #FFF;
-      font-family: "Spoqa Han Sans Neo", sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 140%;
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        height: 50px;
-        padding: 0 10px;
-      }
-
-      .h1 {
         font-size: 16px;
-      }
     }
+}
 
-    @media (max-width: 480px) {
-      .header {
+@media (max-width: 480px) {
+    .header {
         height: 40px;
         padding: 0 5px;
-      }
+    }
 
-      .h1 {
+    .h1 {
         font-size: 14px;
-      }
     }
+}
 
-    .win {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+.win {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-    .win i {
-      color: #FFF;
-      font-size: 18px;
-      cursor: pointer;
-    }
-  </style>
+.win i {
+    color: #FFF;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.divider {
+    background: rgba(255, 255, 255, 0.20);
+    height: 1px;
+    align-self: stretch;
+    flex-shrink: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background: rgba(255, 255, 255, 0.40);
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 40px;
+    flex-shrink: 0;
+    margin-top:2rem;
+}
+
+.button-text {
+    color: #ffffff;
+    font-family: 'SpoqaHanSansNeo-Bold', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+</style>
 </head>
 <body>
   <!-- HEADER -->
@@ -118,7 +212,62 @@
   <!-- MAIN -->
   <main>
     <div class="main-leftpannel">
-      <!-- 왼쪽 패널 내용 -->
+      <div class="left-top" style="padding: 1rem;">
+         <!-- 왼쪽 패널 상단 내용 -->
+          <div class="frame">
+              <div class="common-heading patient-demographics">Patient Demographics</div>
+              <div class="frame">
+                <div class="patient-id">
+                  <div class="common-subheading">Patient ID</div>
+                  <div class="common-detail">241022101098510</div>
+              </div>
+              <div class="patient-name">
+                  <div class="common-subheading">Patient Name</div>
+                  <div class="common-detail">최영수</div>
+              </div>
+              <div class="date-of-birth-age">
+                  <div class="common-subheading">Date of Birth (Age)</div>
+                  <div class="common-detail">1950-01-22 (74)</div>
+              </div>
+              <div class="sex">
+                  <div class="common-subheading">Sex</div>
+                  <div class="common-detail">Male</div>
+              </div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="frame">
+              <div class="common-heading image-information">Image Information</div>
+              <div class="frame">
+                <div class="scan-date-age">
+                  <div class="common-subheading">Scan Date (Age)</div>
+                  <div class="common-detail">2023-01-15 (73)</div>
+              </div>
+              <div class="memo">
+                  <div class="common-subheading">Memo</div>
+                  <div class="common-detail">촬영본 연구모드로 분석</div>
+              </div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="frame">
+              <div class="common-heading summary">Summary</div>
+              <div class="frame">
+                <div class="aneurysm-suspected">
+                  <div class="common-subheading">Aneurysm Suspected</div>
+                  <div class="common-detail">5</div>
+              </div>
+              </div>
+          </div>
+
+          <div class="button" style="width:100%;" >
+            <div class="button-text" >View Details</div>
+          </div>
+        </div> 
+  
+      <div class="left-bottom">
+        <!-- 왼쪽 패널 하단 내용 -->
+      </div>
     </div>
     <div class="main-rightviewer">
       <!-- 오른쪽 뷰어 내용 -->

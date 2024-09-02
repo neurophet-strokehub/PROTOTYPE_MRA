@@ -92,7 +92,8 @@ html, body {
 /* 현재 슬라이더 값 표시 */
 .slider-value {
   font-size: 16px;
-}
+} 
+
 </style>
 </head>
 <body>
@@ -110,39 +111,58 @@ html, body {
               <!-- MRI 정보 핸들러 -->
               <div class="body-handlers">
                 <div class="handle-mri">
-                  <div class="handle-title">Scan Information</div>
-                  <ul class="handle-items">
-                    <li class="handle-item sequence">
-                      <div class="info-item-label">Sequence</div>
-                      <div class="info-item-value">
-                        <div>
-                          <span class="aq-radiobox checked">
-                            <label class="aq-radio-label" for="aq-viewer-radio-sequence-t1">
-                              <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
-                                <path d="M22 16C22 19.3137 19.3137 22 16 22C12.6863 22 10 19.3137 10 16C10 12.6863 12.6863 10 16 10C19.3137 10 22 12.6863 22 16Z" fill="white"></path>
-                                <path d="M16 31C24.2843 31 31 24.2843 31 16C31 7.71573 24.2843 1 16 1C7.71573 1 1 7.71573 1 16C1 24.2843 7.71573 31 16 31ZM16 22C19.3137 22 22 19.3137 22 16C22 12.6863 19.3137 10 16 10C12.6863 10 10 12.6863 10 16C10 19.3137 12.6863 22 16 22Z" fill="#1077FE" fill-rule="evenodd" clip-rule="evenodd"></path>
-                              </svg>T1
-                            </label>
-                            <input id="aq-viewer-radio-sequence-t1" type="radio" name="aq-radio-sequence" value="t1" checked="">
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="handle-item studyDate">
-                      <div class="info-item-label">Scan Date</div>
-                      <div class="info-item-value">2018-05-31</div>
-                    </li>
-                    <li class="handle-item studyId">
-                      <div class="info-item-label">Study ID</div>
-                      <div class="info-item-value">1813401254</div>
-                    </li>
-                    <li class="handle-item studyAge">
-                      <div class="info-item-label">Age<br>(on scanned date)</div>
-                      <div class="info-item-value">74</div>
-                    </li>
-                  </ul>
-                </div>
-  
+                    <div class="handle-title">Patient Demographics</div>
+                    <ul class="handle-items">
+                      <li class="handle-item patientId">
+                        <div class="info-item-label">Patient ID</div>
+                        <div class="info-item-value">241022101098510</div>
+                      </li>
+                      <li class="handle-item patientName">
+                        <div class="info-item-label">Patient Name</div>
+                        <div class="info-item-value">최영수</div>
+                      </li>
+                      <li class="handle-item patientDob">
+                        <div class="info-item-label">Date of Birth<br>(Age)</div>
+                        <div class="info-item-value">1950-01-22 (74)</div>
+                      </li>
+                      <li class="handle-item patientSex">
+                        <div class="info-item-label">Sex</div>
+                        <div class="info-item-value">Male</div>
+                      </li>
+                    </ul>
+                  </div>
+
+<!-- Image Information 섹션 -->
+  <div class="handle-mri">
+    <div class="handle-title">Image Information</div>
+    <ul class="handle-items">
+      <li class="handle-item scanDate">
+        <div class="info-item-label">Scan Date<br>(Age)</div>
+        <div class="info-item-value">2023-01-15 (73)</div>
+      </li>
+      <li class="handle-item memo">
+        <div class="info-item-label">Memo</div>
+        <div class="info-item-value">촬영본 연구모드로 분석</div>
+      </li>
+    </ul>
+  </div>
+   <!-- Summary 섹션 -->
+   <div class="handle-mri">
+    <div class="handle-title">Summary</div>
+    <ul class="handle-items">
+      <li class="handle-item aneurysmSuspected">
+        <div class="info-item-label">Aneurysm Suspected</div>
+        <div class="info-item-value">5</div>
+      </li>
+      <li class="handle-item viewDetails">
+        <div class="info-item-label"></div>
+        <div class="info-item-value">
+          <button class="view-details-button">View Details</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
                 <!-- 시각화 핸들러 -->
                 <div class="handle-viewer">
                   <div class="handle-title">
