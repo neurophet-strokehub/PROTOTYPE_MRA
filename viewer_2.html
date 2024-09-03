@@ -158,21 +158,17 @@
             height: 100vh;
         }
 
-        .iframe-container{
-            flex: 1;
-            /* 자식 컨테이너가 남은 공간을 채우도록 설정 */
-            width: 100%;
-            min-height: 800px;
-             box-sizing: border-box;
-        }
+        .iframe-container {
+    width: 100%;
+    height: 50vh; /* 전체 뷰포트 높이의 절반을 차지하도록 설정 */
+    box-sizing: border-box;
+}
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            /* 자식 컨테이너의 전체 사이즈를 채우도록 설정 */
-            border: none;
-            /* iframe의 기본 테두리 제거 */
-        }
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
         .left-top {
             flex: 7;
@@ -664,16 +660,10 @@
             </div>
             <div class="Rt-bottom">
                 <div class="iframe-container">
-                    <div class="clinical-report" style="width: 100%; height;100vh;">
-                        <iframe
-                            src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>
-                    </div>
+                    <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>
                 </div>
-                <div class="iframe-container"> 
-                    <div class="ruo-report" style="width: 100%;  height;100vh;">
-                        <iframe
-                            src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_RUO.pdf"></iframe>
-                    </div>
+                <div class="iframe-container">
+                    <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_RUO.pdf"></iframe>
                 </div>
             </div>
         </div>
