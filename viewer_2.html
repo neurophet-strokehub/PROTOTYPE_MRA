@@ -154,7 +154,7 @@
             padding: 1rem;
             display: flex;
             justify-content:center;
-            flex-direction: row;
+            flex-direction: column;
             height: 100vh; 
         }
  
@@ -428,7 +428,18 @@
             box-sizing: border-box;
         }
 
-        
+    
+        .iframe-container {
+            width: 100%;
+            height: 100vh; /* 뷰포트 높이에 맞게 설정 */
+            display: flex;
+            flex-direction: column;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 50%; /* 두 개의 PDF가 각각 화면의 반을 차지하게 설정 */
+            border: none; /* 테두리 제거 */
+        }
     </style>
 </head>
 
@@ -624,38 +635,17 @@
                 </div>
             </div> 
             <div class="Rt-bottom"> 
-                <div id="pdf-viewer" style="width: 100%; height: 100%; overflow: auto;"></div>
-
-                <div class="clinical reprot" style="width: 45%;">
-                <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>
-            </div>
-            <div class="RUO reprot" style="width: 45%;">
-                <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_RUO.pdf"></iframe>
+                <div class="iframe-container">
+                    <div class="clinical-report" style="width: 100%;">
+                        <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>
                     </div>
+                    <div class="ruo-report" style="width: 100%;">
+                        <iframe src="https://nbviewer.org/github/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_RUO.pdf"></iframe>
+                    </div>
+                </div>
         </div>
     </div>
-    </main>  
-    <script>
-        var url = 'https://drive.google.com/file/d/1Xnmx2F1yE1p4p1BYC1mxCqKHcozx6nw6/view?usp=sharing';
-        
-        pdfjsLib.getDocument(url).promise.then(function(pdf) {
-            pdf.getPage(1).then(function(page) {
-                var scale = 1.5;
-                var viewport = page.getViewport({ scale: scale });
-                var canvas = document.createElement('canvas');
-                var context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                document.getElementById('pdf-viewer').appendChild(canvas);
-                
-                var renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                page.render(renderContext);
-            });
-        });
-    </script>
+    </main>   
 
 </body> 
 
