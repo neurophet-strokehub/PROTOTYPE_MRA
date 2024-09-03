@@ -8,28 +8,31 @@
     <title>SCALE MRA_DEMO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-      <style>
+    <style>
         .radio-wrapper {
             box-sizing: border-box;
+            height: 100%;
         }
 
         .radio-inputs {
             background: rgba(255, 255, 255, 0.10);
-            border-radius: 2px; 
+            border-radius: 2px;
             display: flex;
             flex-direction: row;
-            gap: 8px; /* 간격 조정 */
+            gap: 8px;
+            /* 간격 조정 */
             align-items: center;
             justify-content: flex-start;
             flex-shrink: 0;
-            width: 35rem; /* 적절한 너비로 조정하세요 */
+            width: 35rem;
+            /* 적절한 너비로 조정하세요 */
             font-size: 14px;
         }
 
         .radio-inputs label {
-            flex: 1; 
+            flex: 1;
             text-align: center;
-            
+
         }
 
         .radio-inputs label input {
@@ -43,12 +46,14 @@
             justify-content: center;
             border-radius: 2px;
             padding: 10px 20px;
-            color: rgba(255, 255, 255, 0.90); /* 스위치와 일치하는 색상 */
+            color: rgba(255, 255, 255, 0.90);
+            /* 스위치와 일치하는 색상 */
             transition: all 0.15s ease-in-out;
         }
 
-        .radio-inputs label input:checked + .radio-label {
-            background-color: rgba(255, 255, 255, 0.20); /* 선택된 상태 색상 */
+        .radio-inputs label input:checked+.radio-label {
+            background-color: rgba(255, 255, 255, 0.20);
+            /* 선택된 상태 색상 */
             font-weight: 600;
         }
 
@@ -56,7 +61,7 @@
         .common-subheading,
         .common-detail {
             color: white;
-            font-family: 'SpoqaHanSansNeo-Regular', sans-serif; 
+            font-family: 'SpoqaHanSansNeo-Regular', sans-serif;
         }
 
         .common-heading {
@@ -125,13 +130,14 @@
             padding: 5px;
             gap: 5px;
         }
+
         .main-Rt {
             flex: 7.5;
             display: flex;
             flex-direction: column;
             padding: 5px;
             gap: 5px;
-        } 
+        }
 
         .Rt-top {
             flex: .5;
@@ -141,13 +147,23 @@
             justify-content: center;
             align-items: center;
             align-self: stretch;
-            display: flex;        }
-        .Rt-bottom{
-            flex: 9; 
-            background-color: black;
-            padding: 1rem;
+            display: flex;
         }
+        .Rt-bottom {
+    flex: 9;
+    background-color: black;
+    padding: 0; /* 패딩을 제거하여 이미지가 화면 하단까지 차지하게 합니다. */
+    position: relative; /* 자식 요소를 절대 위치로 배치할 수 있게 합니다. */
+}
 
+.Rt-bottom img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* 가로 길이를 100%로 설정하여 컨테이너에 맞게 확장합니다. */
+    height: 100%; /* 세로 길이를 100%로 설정하여 컨테이너에 맞게 확장합니다. */
+    object-fit: cover; /* 이미지의 비율을 유지하면서 가로와 세로를 채웁니다. */
+}
         .left-top {
             flex: 7;
             background-color: #383838;
@@ -158,7 +174,7 @@
             flex: 3;
             background-color: #383838;
             padding: 1rem;
-        } 
+        }
 
         .main-rightviewer {
             flex: 7.5;
@@ -284,15 +300,18 @@
             display: flex;
             flex-direction: row;
             align-items: left;
-            justify-content: space-between; /* 왼쪽과 오른쪽으로 정렬합니다. */
+            justify-content: space-between;
+            /* 왼쪽과 오른쪽으로 정렬합니다. */
         }
-        .info{
-         flex: 8;
-         display:flex;
+
+        .info {
+            flex: 8;
+            display: flex;
 
         }
-        .numeric-editor{
-            flex:2
+
+        .numeric-editor {
+            flex: 2
         }
 
         .toggle-btn {
@@ -311,32 +330,38 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 10px; /* 내용과 숫자 편집기 사이의 간격을 조정합니다. */
+            gap: 10px;
+            /* 내용과 숫자 편집기 사이의 간격을 조정합니다. */
         }
 
         .numeric-editor {
             display: flex;
             align-items: center;
-            gap: 5px; /* 버튼과 입력 필드 사이의 간격을 조절합니다. */
+            gap: 5px;
+            /* 버튼과 입력 필드 사이의 간격을 조절합니다. */
         }
 
         .editor-btn {
             background: transparent;
             border: none;
             cursor: pointer;
-            margin: 0 2px; /* 버튼과 입력 필드 사이의 간격 조절 */
+            margin: 0 2px;
+            /* 버튼과 입력 필드 사이의 간격 조절 */
         }
 
         .editor-btn i {
-            font-size: 16px; /* 아이콘 크기 조정 */
+            font-size: 16px;
+            /* 아이콘 크기 조정 */
             color: white;
         }
 
         .value {
             font-size: 14px;
             color: white;
-            width: 50px; /* 인풋 필드 크기 조정 */
-            text-align: right; /* 숫자를 오른쪽으로 정렬합니다. */
+            width: 50px;
+            /* 인풋 필드 크기 조정 */
+            text-align: right;
+            /* 숫자를 오른쪽으로 정렬합니다. */
         }
 
         .value input {
@@ -345,60 +370,62 @@
             border: 1px solid rgba(255, 255, 255, 0.60);
             color: white;
             font-size: 14px;
-            text-align: right; /* 숫자를 오른쪽으로 정렬합니다. */
+            text-align: right;
+            /* 숫자를 오른쪽으로 정렬합니다. */
         }
-        .svg-highlight { 
- 		color: white;
-		/* 보라색 */
-		background-color: rgba(155, 89, 182, 0.1);
-		/* 보라색 배경색 */
-		border-radius: 4px;
-		/* 둥근 모서리 */
-		padding: 4px;
-		/* 아이콘 주변 여백 */
-		box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
-		/* 보라색 그림자 */
-		transition: all 0.5s ease;
-		/* 애니메이션 효과 */
-		animation: sparkle 1.5s infinite;
-		/* 반짝이는 애니메이션 */
-	}
 
-	.svg-highlight:hover {
-		color: red;
-		/* 마우스 오버 시 색상 변화 */
-		background-color: rgba(241, 238, 238, 0.2);
-		/* 마우스 오버 시 배경색 변화 */
-		transform: scale(1.5);
-		/* 크기 증가 */
-		box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
-		/* 보라색 그림자 강화 */
-		animation: sparkle 1s infinite;
-		/* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
-	}
+        .svg-highlight {
+            color: white;
+            /* 보라색 */
+            background-color: rgba(155, 89, 182, 0.1);
+            /* 보라색 배경색 */
+            border-radius: 4px;
+            /* 둥근 모서리 */
+            padding: 4px;
+            /* 아이콘 주변 여백 */
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+            /* 보라색 그림자 */
+            transition: all 0.5s ease;
+            /* 애니메이션 효과 */
+            animation: sparkle 1.5s infinite;
+            /* 반짝이는 애니메이션 */
+        }
 
-	@keyframes sparkle {
-		0% {
-			box-shadow: 0 0 8px red;
-			/* 기본 보라색 그림자 */
-			transform: scale(1);
-			/* 기본 크기 */
-		}
+        .svg-highlight:hover {
+            color: red;
+            /* 마우스 오버 시 색상 변화 */
+            background-color: rgba(241, 238, 238, 0.2);
+            /* 마우스 오버 시 배경색 변화 */
+            transform: scale(1.5);
+            /* 크기 증가 */
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+            /* 보라색 그림자 강화 */
+            animation: sparkle 1s infinite;
+            /* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
+        }
 
-		50% {
-			box-shadow: 0 0 16px red;
-			/* 강화된 보라색 그림자 */
-			transform: scale(1.1);
-			/* 약간의 확대 */
-		}
+        @keyframes sparkle {
+            0% {
+                box-shadow: 0 0 8px red;
+                /* 기본 보라색 그림자 */
+                transform: scale(1);
+                /* 기본 크기 */
+            }
 
-		100% {
-			box-shadow: 0 0 8px red;
-			/* 기본 보라색 그림자 */
-			transform: scale(1);
-			/* 기본 크기 */
-		}
-	}  
+            50% {
+                box-shadow: 0 0 16px red;
+                /* 강화된 보라색 그림자 */
+                transform: scale(1.1);
+                /* 약간의 확대 */
+            }
+
+            100% {
+                box-shadow: 0 0 8px red;
+                /* 기본 보라색 그림자 */
+                transform: scale(1);
+                /* 기본 크기 */
+            }
+        }
     </style>
 </head>
 
@@ -409,9 +436,9 @@
             <a href="prototype.html">
                 <i class="fas fa-arrow-left"> </i>
             </a>
-        </div> 
+        </div>
     </header>
-    
+
 
     <!-- MAIN -->
     <main>
@@ -468,7 +495,7 @@
                     <div class="button-text">View Details</div>
                 </div>
             </div>
-        <!-- 좌패널하단내용 -->
+            <!-- 좌패널하단내용 -->
             <div class="left-bottom">
                 <!-- 왼쪽 패널 하단 내용 -->
                 <div class="frame">
@@ -487,9 +514,9 @@
                                 <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                             </button>
                             <img src="src/img/png/all_color.png" style="margin-right: .5rem;">
-                             <div class="common-heading">ALL</div>
-                            </div>
-                          <div class="numeric-editor">
+                            <div class="common-heading">ALL</div>
+                        </div>
+                        <div class="numeric-editor">
                             <button class="editor-btn" onclick="changeValue(this, -1)">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
@@ -499,7 +526,7 @@
                             <button class="editor-btn" onclick="changeValue(this, 1)">
                                 <i class="fas fa-chevron-up"></i>
                             </button>
-                         </div>                         
+                        </div>
                     </div>
                 </div>
 
@@ -509,9 +536,9 @@
                             <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                         </button>
                         <img src="src/img/png/all_color_red.png" style="margin-right: .5rem;">
-                         <div class="common-heading">#Aneurysm1</div>
-                        </div>
-                      <div class="numeric-editor">
+                        <div class="common-heading">#Aneurysm1</div>
+                    </div>
+                    <div class="numeric-editor">
                         <button class="editor-btn" onclick="changeValue(this, -1)">
                             <i class="fas fa-chevron-down"></i>
                         </button>
@@ -521,7 +548,7 @@
                         <button class="editor-btn" onclick="changeValue(this, 1)">
                             <i class="fas fa-chevron-up"></i>
                         </button>
-                     </div>                         
+                    </div>
                 </div>
 
                 <div class="visibility">
@@ -530,9 +557,9 @@
                             <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                         </button>
                         <img src="src/img/png/all_color_blue.png" style="margin-right: .5rem;">
-                         <div class="common-heading">#Aneurysm2</div>
-                        </div>
-                      <div class="numeric-editor">
+                        <div class="common-heading">#Aneurysm2</div>
+                    </div>
+                    <div class="numeric-editor">
                         <button class="editor-btn" onclick="changeValue(this, -1)">
                             <i class="fas fa-chevron-down"></i>
                         </button>
@@ -542,7 +569,7 @@
                         <button class="editor-btn" onclick="changeValue(this, 1)">
                             <i class="fas fa-chevron-up"></i>
                         </button>
-                     </div>                         
+                    </div>
                 </div>
 
                 <div class="visibility">
@@ -551,9 +578,9 @@
                             <img src="src/img/png/eye-on.png" alt="Eye On" class="icon" />
                         </button>
                         <img src="src/img/png/all_color_yellow.png" style="margin-right: .5rem;">
-                         <div class="common-heading">#Aneurysm3</div>
-                        </div>
-                      <div class="numeric-editor">
+                        <div class="common-heading">#Aneurysm3</div>
+                    </div>
+                    <div class="numeric-editor">
                         <button class="editor-btn" onclick="changeValue(this, -1)">
                             <i class="fas fa-chevron-down"></i>
                         </button>
@@ -563,38 +590,39 @@
                         <button class="editor-btn" onclick="changeValue(this, 1)">
                             <i class="fas fa-chevron-up"></i>
                         </button>
-                     </div>                         
-                </div>
-
-
-
-                          <!-- 추가 레이어들 -->
-                </div>
-            </div>
-        </div> 
-        <!-- 오른쪽 뷰어 내용 -->
-        <div class="main-Rt">
-            <div class="Rt-top" style="background-color: #383838;"> 
-            <div class="frame" style="background-color: #383838;">
-                <div class="radio-wrapper">
-                    <div class="radio-inputs">
-                        <label onclick="window.location.href='viewer_1.html'">
-                            <input id="radio1" type="radio" name="radio-group" checked />
-                            <span class="radio-label"><img src="src/img/png/icon_Viewer.png" style="margin-right: 1rem;">Image</span>
-                        </label>
-                        <label onclick="window.location.href='viewer_2.html'"> 
-                            <input id="radio2" type="radio" name="radio-group" />
-                            <span class="radio-label "><img src="src/img/png/icon_Reports.png" style="margin-right: 1rem; ">Report</span></
-                        </label>
                     </div>
-                </div> 
+                </div>
+
+
+
+                <!-- 추가 레이어들 -->
             </div>
         </div>
+        </div>
+        <!-- 오른쪽 뷰어 내용 -->
+        <div class="main-Rt">
+            <div class="Rt-top" style="background-color: #383838;">
+                <div class="frame" style="background-color: #383838;">
+                    <div class="radio-wrapper">
+                        <div class="radio-inputs">
+                            <label onclick="window.location.href='viewer_1.html'">
+                                <input id="radio1" type="radio" name="radio-group" checked />
+                                <span class="radio-label"><img src="src/img/png/icon_Viewer.png"
+                                        style="margin-right: 1rem;">Image</span>
+                            </label>
+                            <label onclick="window.location.href='viewer_2.html'">
+                                <input id="radio2" type="radio" name="radio-group" />
+                                <span class="radio-label "><img src="src/img/png/icon_Reports.png"
+                                        style="margin-right: 1rem; ">Report</span></ </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
             <div class="Rt-bottom">
-            
-             </div>
+                <img src="src/img/png/Frame 6123.png">
+            </div>
         </div>
     </main>
 
@@ -606,7 +634,7 @@
 
             // 현재 아이콘의 src 속성을 가져옵니다.
             const currentSrc = icon.getAttribute('src');
-            
+
             // 아이콘의 src 속성을 변경합니다.
             if (currentSrc === eyeOnSrc) {
                 icon.setAttribute('src', eyeOffSrc);
@@ -628,7 +656,7 @@
                 input.value = 0;
             }
         }
-    </script> 
+    </script>
 </body>
 
 </html>
