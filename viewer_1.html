@@ -9,49 +9,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
       <style>
- .radio-wrapper {
-    box-sizing: border-box;
-}
+        .radio-wrapper {
+            box-sizing: border-box;
+        }
 
-.radio-inputs {
-    background: rgba(255, 255, 255, 0.10);
-    border-radius: 2px;
-    padding: 4px;
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    align-items: center;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    width: 150px; /* 적절한 너비로 조정하세요 */
-    font-size: 14px;
-}
+        .radio-inputs {
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: 2px; 
+            display: flex;
+            flex-direction: row;
+            gap: 8px; /* 간격 조정 */
+            align-items: center;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            width: 35rem; /* 적절한 너비로 조정하세요 */
+            font-size: 14px;
+        }
 
-.radio-inputs label {
-    flex: 1;
-    text-align: center;
-}
+        .radio-inputs label {
+            flex: 1; 
+            text-align: center;
+            
+        }
 
-.radio-inputs label input {
-    display: none;
-}
+        .radio-inputs label input {
+            display: none;
+        }
 
-.radio-label {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    padding: 8px 16px;
-    color: rgba(255, 255, 255, 0.90); /* 스위치와 일치하는 색상 */
-    transition: all 0.15s ease-in-out;
-}
+        .radio-label {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.90); /* 스위치와 일치하는 색상 */
+            transition: all 0.15s ease-in-out;
+        }
 
-.radio-inputs label input:checked + .radio-label {
-    background-color: rgba(255, 255, 255, 0.20); /* 선택된 상태 색상 */
-    font-weight: 600;
-}
-
+        .radio-inputs label input:checked + .radio-label {
+            background-color: rgba(255, 255, 255, 0.20); /* 선택된 상태 색상 */
+            font-weight: 600;
+        }
 
         .common-heading,
         .common-subheading,
@@ -131,11 +130,7 @@
             flex-direction: column;
             padding: 5px;
             gap: 5px;
-        }
-        .rt-top{
-            
-        }
-
+        } 
 
         .left-top {
             flex: 7;
@@ -560,17 +555,15 @@
                           <!-- 추가 레이어들 -->
                 </div>
             </div>
-        </div>
-
-
+        </div> 
         <!-- 오른쪽 뷰어 내용 -->
         <div class="main-Rt">
             <div class="Rt-top">
-                <div class="radio-wrapper">
+                <div class="radio-wrapper" >
                     <div class="radio-inputs">
-                        <label for="radio1">
+                        <label for="radio1" >
                             <input id="radio1" type="radio" name="radio-group" checked />
-                            <span class="radio-label" >Image</span>
+                            <span class="radio-label"><img src="src/img/png/icon_Viewer.png">Image</span>
                         </label>
                         <label for="radio2">
                             <input id="radio2" type="radio" name="radio-group" />
