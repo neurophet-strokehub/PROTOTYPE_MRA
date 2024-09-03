@@ -135,7 +135,6 @@
             flex-direction: column;
             padding: 5px;
             gap: 5px;
-
         }
 
         .Rt-top {
@@ -153,6 +152,9 @@
             flex: 9;
             background-color: black;
             padding: 1rem;
+            display: flex;
+            justify-content:center;
+            flex-direction: row;
         }
 
         .left-top {
@@ -405,6 +407,13 @@
   }
 }
 
+.clinical.reprot,
+        .RUO.reprot {
+            flex: 1; /* 자식 컨테이너가 남은 공간을 채우도록 설정 */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         
     </style>
 </head>
@@ -600,11 +609,14 @@
                     </div>
                 </div>
             </div> 
-            <div class="Rt-bottom" style="width:100%; height:auto;"> 
+            <div class="Rt-bottom"> 
+                <div class="clinical reprot" style="width: 100%;">
                 <iframe src="https://github.com/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>
-                <!-- 툴바숨기기 -->
+            </div>
+            <div class="RUO reprot" style="width: 100%;">
                 <iframe src="https://github.com/Neurophet-stroke/PROTOTYPE_MRA/blob/master/MRA_CLINICAL.pdf"></iframe>            </div>
         </div>
+    </div>
     </main>  
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 
