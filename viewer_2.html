@@ -383,13 +383,13 @@
         }
 
         .svg-highlight:hover {
-            color: red;
+            color: rgba(255, 0, 0, 0.068);
             /* 마우스 오버 시 색상 변화 */
             background-color: rgba(241, 238, 238, 0.2);
             /* 마우스 오버 시 배경색 변화 */
             transform: scale(1.5);
             /* 크기 증가 */
-            box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 12px rgba(225, 0, 255, 0.199);
             /* 보라색 그림자 강화 */
             animation: sparkle 1s infinite;
             /* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
@@ -397,27 +397,27 @@
 
         @keyframes sparkle {
             0% {
-                box-shadow: 0 0 8px red;
+                box-shadow: 0 0 8px rgba(31, 0, 28, 0.144);
                 /* 기본 보라색 그림자 */
                 transform: scale(1);
                 /* 기본 크기 */
             }
 
             50% {
-                box-shadow: 0 0 16px red;
+                box-shadow: 0 0 16px rgba(255, 0, 128, 0.411);
                 /* 강화된 보라색 그림자 */
                 transform: scale(1.1);
                 /* 약간의 확대 */
             }
 
             100% {
-                box-shadow: 0 0 8px red;
+                box-shadow: 0 0 8px rgba(247, 0, 255, 0.274);
                 /* 기본 보라색 그림자 */
                 transform: scale(1);
                 /* 기본 크기 */
             }
-        }
-        
+        } 
+
         
     </style>
 </head>
@@ -595,11 +595,11 @@
         <div class="main-Rt">
             <div class="Rt-top" style="background-color: #383838;">
                 <div class="frame" style="background-color: #383838;">
-                    <div class="radio-wrapper">
-                        <div class="radio-inputs">
-                            <label onclick="window.location.href='viewer_1.html'">
+                    <div class="radio-wrapper ">
+                        <div class="radio-inputs" >
+                            <label onclick="window.location.href='viewer_1.html'" >
                                 <input id="radio1" type="radio" name="radio-group" checked />
-                                <span class="radio-label image-btn">
+                                <span class="radio-label shadow">
                                     <img src="src/img/png/icon_Viewer.png" style="margin-right: 1rem;">Image
                                 </span>
                             </label>
