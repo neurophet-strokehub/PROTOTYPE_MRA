@@ -365,58 +365,45 @@
             /* 숫자를 오른쪽으로 정렬합니다. */
         }
 
-        .svg-highlight {
-            color: white;
-            /* 보라색 */
-            background-color: rgba(155, 89, 182, 0.1);
-            /* 보라색 배경색 */
-            border-radius: 4px;
-            /* 둥근 모서리 */
-            padding: 4px;
-            /* 아이콘 주변 여백 */
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
-            /* 보라색 그림자 */
-            transition: all 0.5s ease;
-            /* 애니메이션 효과 */
-            animation: sparkle 1.5s infinite;
-            /* 반짝이는 애니메이션 */
-        }
+        /* SVG 하이라이트 스타일 */
+.svg-highlight {
+  color: #ffffff; /* 텍스트 색상: 하얀색 */
+  background-color: rgba(128, 0, 128, 0.1); /* 배경색: 연한 보라색 */
+  border-radius: 4px; /* 둥근 모서리 */
+  padding: 4px; /* 아이콘 주변 여백 */
+  box-shadow: 0 0 20px rgba(128, 0, 128, 0.5); /* 보라색 그림자 */
+  transition: all 0.5s ease; /* 애니메이션 효과 */
+  animation: sparkle 1.5s infinite; /* 반짝이는 애니메이션 */
+  display: inline-block; /* 인라인 블록 요소로 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
 
-        .svg-highlight:hover {
-            color: rgba(255, 0, 0, 0.068);
-            /* 마우스 오버 시 색상 변화 */
-            background-color: rgba(241, 238, 238, 0.2);
-            /* 마우스 오버 시 배경색 변화 */
-            transform: scale(1.5);
-            /* 크기 증가 */
-            box-shadow: 0 0 12px rgba(225, 0, 255, 0.199);
-            /* 보라색 그림자 강화 */
-            animation: sparkle 1s infinite;
-            /* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
-        }
+/* 마우스 오버 시 스타일 */
+.svg-highlight:hover {
+  color: #ff69b4; /* 마우스 오버 시 텍스트 색상: 핫핑크 */
+  background-color: rgba(255, 240, 245, 0.2); /* 마우스 오버 시 배경색: 연한 핑크색 */
+  transform: scale(1.2); /* 크기 증가 */
+  box-shadow: 0 0 12px rgba(255, 20, 147, 0.3); /* 강화된 핑크색 그림자 */
+  animation: sparkle 1s infinite; /* 마우스 오버 시 애니메이션 속도 변경 */
+}
 
-        @keyframes sparkle {
-            0% {
-                box-shadow: 0 0 8px rgba(31, 0, 28, 0.144);
-                /* 기본 보라색 그림자 */
-                transform: scale(1);
-                /* 기본 크기 */
-            }
+/* 반짝이는 애니메이션 */
+@keyframes sparkle {
+  0% {
+    box-shadow: 0 0 8px rgba(128, 0, 128, 0.3); /* 기본 보라색 그림자 */
+    transform: scale(1); /* 기본 크기 */
+  }
 
-            50% {
-                box-shadow: 0 0 16px rgba(255, 0, 128, 0.411);
-                /* 강화된 보라색 그림자 */
-                transform: scale(1.1);
-                /* 약간의 확대 */
-            }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 105, 180, 0.6); /* 강화된 핑크색 그림자 */
+    transform: scale(1.1); /* 약간의 확대 */
+  }
 
-            100% {
-                box-shadow: 0 0 8px rgba(247, 0, 255, 0.274);
-                /* 기본 보라색 그림자 */
-                transform: scale(1);
-                /* 기본 크기 */
-            }
-        } 
+  100% {
+    box-shadow: 0 0 8px rgba(128, 0, 128, 0.3); /* 기본 보라색 그림자 */
+    transform: scale(1); /* 기본 크기 */
+  }
+}
 
         
     </style>
@@ -613,55 +600,13 @@
                     </div>
                 </div>
             </div> 
-            <div class="Rt-bottom">
-                <div id="pdf-viewer" style="width: 100%; height: 100vh; overflow: auto;"></div>
-            </div>
+            <div class="Rt-bottom heigh">
+                d
+                <iframe src="src/img/png/SCALE MRA 1.0_Report Sample 1.pdf"></iframe>
+                <!-- 툴바숨기기 -->
+                <iframe src="src/img/png/SCALE MRA 1.0_Report Sample 1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>            </div>
         </div>
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.0/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.0/pdf.worker.min.js"></script>
-
-    <script>
-        const url = 'src/pdf/your-pdf-file.pdf'; // PDF 파일 경로
-    
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.0/pdf.worker.min.js';
-    
-        const loadingTask = pdfjsLib.getDocument(url);
-        loadingTask.promise.then(function(pdf) {
-            console.log('PDF loaded');
-    
-            // Fetch the first page
-            pdf.getPage(1).then(function(page) {
-                console.log('Page loaded');
-    
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale });
-    
-                // Prepare canvas using PDF page dimensions
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-    
-                // Append the canvas to the viewer
-                document.getElementById('pdf-viewer').appendChild(canvas);
-    
-                // Render PDF page into canvas context
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                const renderTask = page.render(renderContext);
-                renderTask.promise.then(function() {
-                    console.log('Page rendered');
-                });
-            });
-        }).catch(function (reason) {
-            console.error('Error: ' + reason);
-        });
-    </script>
+    </main>  
 </body> 
 
 </html>
