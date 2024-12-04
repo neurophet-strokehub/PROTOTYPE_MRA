@@ -48,6 +48,7 @@
 			font-size: 0.75rem;
 			font-weight: bold;
 			color: rgba(255, 255, 255, 0.6);
+			align-self: center;
 		}
 
 		.header-row .header-item {
@@ -70,6 +71,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			align-self: center;
+			height: 80%;
 		}
 
 		/* 기본적으로 왼쪽 정렬 */
@@ -82,7 +85,7 @@
 		.checkbox-container {
 			display: flex;
 			align-items: center;
-		} 
+		}
 
 		/* 커스텀 체크박스 스타일 */
 		.checkbox-container input[type="checkbox"]+span {
@@ -121,65 +124,64 @@
 		}
 
 		.svg-link {
-		text-decoration: none;
-		/* 링크의 기본 밑줄 제거 */
-	}
-
-	.svg-highlight {
-		margin-top: .5rem;
-		scale: 2;
-		color: white;
-		/* 보라색 */
-		background-color: rgba(155, 89, 182, 0.1);
-		/* 보라색 배경색 */
-		border-radius: 4px;
-		/* 둥근 모서리 */
-		padding: 4px;
-		/* 아이콘 주변 여백 */
-		box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
-		/* 보라색 그림자 */
-		transition: all 0.3s ease;
-		/* 애니메이션 효과 */
-		animation: sparkle 1.5s infinite;
-		/* 반짝이는 애니메이션 */
-	}
-
-	.svg-highlight:hover {
-		color: red;
-		/* 마우스 오버 시 색상 변화 */
-		background-color: rgba(155, 89, 182, 0.2);
-		/* 마우스 오버 시 배경색 변화 */
-		transform: scale(1.5);
-		/* 크기 증가 */
-		box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
-		/* 보라색 그림자 강화 */
-		animation: sparkle 1s infinite;
-		/* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
-	}
-
-	@keyframes sparkle {
-		0% {
-			box-shadow: 0 0 8px red;
-			/* 기본 보라색 그림자 */
-			transform: scale(1);
-			/* 기본 크기 */
+			text-decoration: none;
+			/* 링크의 기본 밑줄 제거 */
 		}
 
-		50% {
-			box-shadow: 0 0 16px red;
-			/* 강화된 보라색 그림자 */
-			transform: scale(1.1);
-			/* 약간의 확대 */
+		.svg-highlight {
+			margin-top: .5rem;
+			scale: 2;
+			color: white;
+			/* 보라색 */
+			background-color: rgba(155, 89, 182, 0.1);
+			/* 보라색 배경색 */
+			border-radius: 4px;
+			/* 둥근 모서리 */
+			padding: 4px;
+			/* 아이콘 주변 여백 */
+			box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+			/* 보라색 그림자 */
+			transition: all 0.3s ease;
+			/* 애니메이션 효과 */
+			animation: sparkle 1.5s infinite;
+			/* 반짝이는 애니메이션 */
 		}
 
-		100% {
-			box-shadow: 0 0 8px red;
-			/* 기본 보라색 그림자 */
-			transform: scale(1);
-			/* 기본 크기 */
+		.svg-highlight:hover {
+			color: red;
+			/* 마우스 오버 시 색상 변화 */
+			background-color: rgba(155, 89, 182, 0.2);
+			/* 마우스 오버 시 배경색 변화 */
+			transform: scale(1.5);
+			/* 크기 증가 */
+			box-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+			/* 보라색 그림자 강화 */
+			animation: sparkle 1s infinite;
+			/* 마우스 오버 시 반짝이는 애니메이션 속도 변경 */
 		}
-	}
 
+		@keyframes sparkle {
+			0% {
+				box-shadow: 0 0 8px red;
+				/* 기본 보라색 그림자 */
+				transform: scale(1);
+				/* 기본 크기 */
+			}
+
+			50% {
+				box-shadow: 0 0 16px red;
+				/* 강화된 보라색 그림자 */
+				transform: scale(1.1);
+				/* 약간의 확대 */
+			}
+
+			100% {
+				box-shadow: 0 0 8px red;
+				/* 기본 보라색 그림자 */
+				transform: scale(1);
+				/* 기본 크기 */
+			}
+		}
 	</style>
 </head>
 
@@ -249,65 +251,149 @@
 
 				<!-- Data Content -->
 				<div class="data-row">
-                    <div class="data-item checkbox-container">
-                        <input type="checkbox" class="data-checkbox cursor-pointer">
-                         
-                    </div>
+					<div class="data-item checkbox-container">
+						<input type="checkbox" class="data-checkbox cursor-pointer">
+
+					</div>
 					<div class="data-item id">1</div>
 					<div class="data-item mode">
-						<img src="src/img/png/research.svg"></div>
+						<img src="src/img/png/research.svg">
+					</div>
 					<div class="data-item patient-id">240000000001</div>
-					<div class="data-item patient-name">DEMO_시연용					</div>
+					<div class="data-item patient-name">DEMO_시연용 </div>
 					<div class="data-item sex">Female</div>
 					<div class="data-item dob">1962-01-15 (68)</div>
 					<div class="data-item aneurysm suspected">Suspected</div>
 					<div class="data-item scan-date">2022-07-25</div>
 					<div class="data-item action">
 						<a href="viewer_1.html" target="_blank" class="svg-link">
-							<div class="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-[120px] relative gap-3 px-2.5 py-1">
-								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-grow-0 flex-shrink-0 w-4 h-4 relative svg-highlight" preserveAspectRatio="xMidYMid meet">
+							<div
+								class="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-[120px] relative gap-3 px-2.5 py-1">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="flex-grow-0 flex-shrink-0 w-4 h-4 relative svg-highlight"
+									preserveAspectRatio="xMidYMid meet">
 									<g opacity="0.9">
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M15 1.5H1V12.5H6.5V14H4V15H12V14H9.5V12.5H15V1.5ZM14 2.5H2V10.5H14V2.5Z" fill="currentColor"></path>
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15 1.5H1V12.5H6.5V14H4V15H12V14H9.5V12.5H15V1.5ZM14 2.5H2V10.5H14V2.5Z"
+											fill="currentColor"></path>
 									</g>
 								</svg>
 							</div>
-						</a>					</div>
+						</a>
+					</div>
 					<div class="data-item image-format">DICOM</div>
 					<div class="data-item status">Completed</div>
 					<div class="data-item completed">2024-01-01 10:52</div>
 					<div class="data-item memo">test</div>
 				</div>
 				<!-- Add more rows as needed -->
+				<div class="data-row">
+					<div class="data-item checkbox-container">
+						<input type="checkbox" class="data-checkbox cursor-pointer">
+
+					</div>
+					<div class="data-item id">1</div>
+					<div class="data-item mode">
+						<img src="src/img/png/research.svg">
+					</div>
+					<div class="data-item patient-id">240000000001</div>
+					<div class="data-item patient-name">DEMO_시연용 </div>
+					<div class="data-item sex">Female</div>
+					<div class="data-item dob">1962-01-15 (68)</div>
+					<div class="data-item aneurysm suspected">Suspected</div>
+					<div class="data-item scan-date">2022-07-25</div>
+					<div class="data-item action">
+						<a href="viewer_1.html" target="_blank" class="svg-link">
+							<div
+								class="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-[120px] relative gap-3 px-2.5 py-1">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="flex-grow-0 flex-shrink-0 w-4 h-4 relative svg-highlight"
+									preserveAspectRatio="xMidYMid meet">
+									<g opacity="0.9">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15 1.5H1V12.5H6.5V14H4V15H12V14H9.5V12.5H15V1.5ZM14 2.5H2V10.5H14V2.5Z"
+											fill="currentColor"></path>
+									</g>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="data-item image-format">DICOM</div>
+					<div class="data-item status">Completed</div>
+					<div class="data-item completed">2024-01-01 10:52</div>
+					<div class="data-item memo">test</div>
+				</div>
+				<!-- Add more rows as needed -->
+				<div class="data-row">
+					<div class="data-item checkbox-container">
+						<input type="checkbox" class="data-checkbox cursor-pointer">
+
+					</div>
+					<div class="data-item id">1</div>
+					<div class="data-item mode">
+						<img src="src/img/png/research.svg">
+					</div>
+					<div class="data-item patient-id">240000000001</div>
+					<div class="data-item patient-name">DEMO_시연용 </div>
+					<div class="data-item sex">Female</div>
+					<div class="data-item dob">1962-01-15 (68)</div>
+					<div class="data-item aneurysm suspected">Suspected</div>
+					<div class="data-item scan-date">2022-07-25</div>
+					<div class="data-item action">
+						<a href="viewer_1.html" target="_blank" class="svg-link">
+							<div
+								class="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-[120px] relative gap-3 px-2.5 py-1">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="flex-grow-0 flex-shrink-0 w-4 h-4 relative svg-highlight"
+									preserveAspectRatio="xMidYMid meet">
+									<g opacity="0.9">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15 1.5H1V12.5H6.5V14H4V15H12V14H9.5V12.5H15V1.5ZM14 2.5H2V10.5H14V2.5Z"
+											fill="currentColor"></path>
+									</g>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="data-item image-format">DICOM</div>
+					<div class="data-item status">Completed</div>
+					<div class="data-item completed">2024-01-01 10:52</div>
+					<div class="data-item memo">test</div>
+				</div>
+
 			</div>
 		</main>
 	</div>
 
 	<script>
 		// Select/Deselect all checkboxes
-        document.getElementById('select-all').addEventListener('change', function() {
-            const isChecked = this.checked;
-            document.querySelectorAll('.data-checkbox').forEach(checkbox => {
-                checkbox.checked = isChecked;
-            });
-        });
+		document.getElementById('select-all').addEventListener('change', function () {
+			const isChecked = this.checked;
+			document.querySelectorAll('.data-checkbox').forEach(checkbox => {
+				checkbox.checked = isChecked;
+			});
+		});
 
-        // Check if there's only one data row and handle checkbox change
-        function handleSingleRowCheckbox() {
-            const dataRows = document.querySelectorAll('.data-row');
-            if (dataRows.length === 1) {
-                const dataCheckbox = dataRows[0].querySelector('.data-checkbox');
-                dataCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        document.getElementById('select-all').checked = true;
-                    } else {
-                        document.getElementById('select-all').checked = false;
-                    }
-                });
-            }
-        }
+		// Check if there's only one data row and handle checkbox change
+		function handleSingleRowCheckbox() {
+			const dataRows = document.querySelectorAll('.data-row');
+			if (dataRows.length === 1) {
+				const dataCheckbox = dataRows[0].querySelector('.data-checkbox');
+				dataCheckbox.addEventListener('change', function () {
+					if (this.checked) {
+						document.getElementById('select-all').checked = true;
+					} else {
+						document.getElementById('select-all').checked = false;
+					}
+				});
+			}
+		}
 
-        // Call the function to set up the event listener
-        handleSingleRowCheckbox();
+		// Call the function to set up the event listener
+		handleSingleRowCheckbox();
 	</script>
 </body>
 
